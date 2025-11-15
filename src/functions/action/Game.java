@@ -28,7 +28,7 @@ public class Game {
         int i = 0;
         while (i == 0) {
             System.out.println("Чтобы начать игру введите \"Y\", чтобы выйти из игры введите  \"N\"");
-            res = input.inputCheck(1, PATTERN_OF_DECISION_CHECK );
+            res = input.inputCheck(1, PATTERN_OF_DECISION_CHECK);
             if (res.equals("Y") || res.equals("y"))
                 i = 1;
             else if (res.equals("N") || res.equals("n")) {// выход  по людой клавише!!!
@@ -65,7 +65,7 @@ public class Game {
                 System.out.println("-------------------------------------------");
                 System.out.println("Вы проиграли!");
                 System.out.println("Хотите перезапустить игру введите \"Y\" или \"y\"? иначе \"N\" или \"n\" она будет завершена"); // для выхода? не строгая проверка?
-                res = input.inputCheck(1,PATTERN_OF_DECISION_CHECK);// строго!!!!!!
+                res = input.inputCheck(1, PATTERN_OF_DECISION_CHECK);// строго!!!!!!
                 if (res.equals("Y") || res.equals("y")) {
                     count_error = 0;
                     refresh();
@@ -77,7 +77,7 @@ public class Game {
             if (symbol.pse_word.equals(symbol.word)) {
                 System.out.println("Поздравляем! Вы выйграли ");
                 System.out.println("Хотите перезапустить игру введите \"Y\" или \"y\"? иначе \"N\" или \"n\" она будет завершена"); // для выхода? не строгая проверка?
-                res = input.inputCheck(1,PATTERN_OF_DECISION_CHECK);// строго!!!!!!
+                res = input.inputCheck(1, PATTERN_OF_DECISION_CHECK);// строго!!!!!!
                 if (res.equals("Y") || res.equals("y")) {
                     count_error = 0;
                     refresh();//final!
@@ -90,10 +90,11 @@ public class Game {
 
     void refresh() {
         data.write_data();
-        symbol.word = data.secret_data();
-        symbol.pse_word = symbol.word.replaceAll(PATTERN_OF_REPLACE , "*");//final!
+        symbol.word = "ёлка";//data.secret_data();
+        symbol.pse_word = symbol.word.replaceAll(PATTERN_OF_REPLACE, "*");//final!
         System.out.println("-------------------------------------------");
     }
+
     void exit_from_game() throws InterruptedException {
         System.out.println("Выход из игры....");
         Thread.sleep(TIME_TO_END);

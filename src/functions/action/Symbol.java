@@ -42,6 +42,7 @@ public class Symbol {
             StringBuilder str_build = new StringBuilder(patt);
             str_build.insert(13, input);
             patt = str_build.toString();
+            flag--;
         } else {//меняем первый раз шаблон
             StringBuilder str_build = new StringBuilder(patt);
             str_build.insert(8, "&&[^" + input + "]");
