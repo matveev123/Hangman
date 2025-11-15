@@ -28,7 +28,7 @@ public class Game {
         int i = 0;
         while (i == 0) {
             System.out.println("Чтобы начать игру введите \"Y\", чтобы выйти из игры введите  \"N\"");
-            res = input.inputCheck(1, PATTERN_OF_DECISION_CHECK);
+            res = input.inputCheck(1, PATTERN_OF_DECISION_CHECK);// перенести input check сюда и думать дальше!
             if (res.equals("Y") || res.equals("y"))
                 i = 1;
             else if (res.equals("N") || res.equals("n")) {// выход  по людой клавише!!!
@@ -90,7 +90,7 @@ public class Game {
 
     void refresh() {
         data.write_data();
-        symbol.word = "ёлка";//data.secret_data();
+        symbol.word = data.secret_data();
         symbol.pse_word = symbol.word.replaceAll(PATTERN_OF_REPLACE, "*");//final!
         System.out.println("-------------------------------------------");
     }

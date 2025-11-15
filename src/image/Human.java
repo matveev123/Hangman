@@ -8,22 +8,22 @@ public class Human {
                 return "    О\n";
             }
             case 2: {
-                return "    О\n" + "     /\n";
+                return "   \\\n    О\n" + "     /\n";
             }
             case 3: {
-                return "    О\n" + "    | /";
+                return "   \\\n    О\n" + "    | /";
             }
             case 4: {
-                return "    О\n" + "  \\ | /";
+                return "   \\\n    О\n" + "  \\ | /";
             }
             case 5: {
-                return "    О\n" + "  \\ | /\n" + "    |";
+                return "   \\\n    О\n" + "  \\ | /\n" + "    |";
             }
             case 6: {
-                return "    О\n" + "  \\ | /\n" + "    |\n" + "   /";
+                return "   \\\n    О\n" + "  \\ | /\n" + "    |\n" + "   /";
             }
             case 7: {
-                return "    О\n" + "  \\ | /\n" + "    |\n" + "   / \\";
+                return "   \\\n    О\n" + "  \\ | /\n" + "    |\n" + "   / \\";
             }
         }
         return "xxxx";
