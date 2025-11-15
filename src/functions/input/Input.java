@@ -16,6 +16,9 @@ public class Input {
             message1 = "Введите символ";
             message2 = "Неверный ввод \n Пожалуйста, введите символ(пр. \"Y\",\"y\",\"N\",\"n\") ";
         }
+        if (pat.length() > 14) {
+            message1 += " ёщё раз, вы ранее вводили текущий символ ";
+        }
 
 
         Scanner scanner = new Scanner(System.in);

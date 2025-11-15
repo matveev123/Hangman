@@ -1,5 +1,7 @@
 package functions.action;
 
+import java.util.Arrays;
+
 public class Symbol {
 
     public String word, pse_word;
@@ -32,20 +34,18 @@ public class Symbol {
     }
 
     public void reset_mas() {
-        for (int i = 0; i < count_dublicates.length; i++) {//Arrays.fill!!!
-            count_dublicates[i] = 0;
-        }
+        Arrays.fill(count_dublicates, 0);
     }
 
     public String check_prev(int flag, String patt, String input) {
         if (flag >= 1) {//уже добавили букву у шаблону
             StringBuilder str_build = new StringBuilder(patt);
-            str_build.insert(13, input);
+            str_build.insert(15, input);
             patt = str_build.toString();
-            flag--;
+
         } else {//меняем первый раз шаблон
             StringBuilder str_build = new StringBuilder(patt);
-            str_build.insert(8, "&&[^" + input + "]");
+            str_build.insert(10, "&&[^" + input + "]");
             patt = str_build.toString();
         }
         return patt;

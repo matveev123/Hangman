@@ -10,7 +10,7 @@ public class Game {
 
     final int COUNT_OF_GUESS = 7;
 
-    public final String PATTERN_OF_GUESS_CHECK = "^[а-яА-Я]{1}$";// "INPUT in name???"
+    public final String PATTERN_OF_GUESS_CHECK = "^[ёа-яЁА-Я]{1}";// "INPUT in name???"
     public final String PATTERN_OF_DECISION_CHECK = "^(Y|y|N|n){1}$";
     public final String PATTERN_OF_REPLACE = "[^\\*]";
 
@@ -44,9 +44,9 @@ public class Game {
         while (true) {
             System.out.println("Подсказка:" + symbol.word);
             System.out.println(symbol.pse_word);
-            inputS = input.inputCheck(2, PATTERN_OF_GUESS_CHECK);// типо в строку временную впихую Input(даннные введенные пользователем)
+            inputS = input.inputCheck(2, patt);// типо в строку временную впихую Input(даннные введенные пользователем)
             // процесс отгадывания буквы
-            if (symbol.word.contains(inputS)) {//this
+            if (symbol.word.contains(inputS)) {
                 symbol.temp_char = inputS.charAt(0);
                 // обнуление кол-ва повторов
                 symbol.reset_mas();
