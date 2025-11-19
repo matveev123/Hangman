@@ -1,30 +1,42 @@
-### IntelliJ IDEA ###
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
 out/
-!**/src/main/**/out/
-!**/src/test/**/out/
-.kotlin
+target/
+.gradle/
+build/
 
-### Eclipse ###
-.apt_generated
+# Java specific
+*.class
+*.jar
+*.war
+*.ear
+*.zip
+*.tar
+*.gz
+hs_err_pid*
 .classpath
-.factorypath
 .project
-.settings
-.springBeans
-.sts4-cache
-bin/
-!**/src/main/**/bin/
-!**/src/test/**/bin/
+.settings/
 
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
+# Maven specific
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/wrapper/maven-wrapper.jar
 
-### VS Code ###
-.vscode/
+# Gradle specific
+.gradle/
+build/
+*.log
+!gradle-wrapper.jar
 
-### Mac OS ###
+# OS specific
+Thumbs.db
 .DS_Store
