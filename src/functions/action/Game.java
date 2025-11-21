@@ -109,7 +109,6 @@ public class Game {
 
             //win!
             if (symbol.maskOfSecret.equals(symbol.secret)) {
-                // message.outputMessages(3);???
                 // подготовка ввода пользователем
                 changeablePattern = PATTERN_OF_DECISION_CHECK;
                 message.outputMessages(1);

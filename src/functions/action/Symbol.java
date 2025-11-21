@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class Symbol {
 
-    public String secret, maskOfSecret;
+    public String secret, maskOfSecret,specificLetters = "Ёё";
     public char charToGuess;
     public int[] countOfDuplicates = new int[10];
 
@@ -20,7 +20,7 @@ public class Symbol {
 
 
     public void replaceSymbol() {
-        if(this.maskOfSecret.contains(String.valueOf(charToGuess))){
+        if (this.maskOfSecret.contains(String.valueOf(charToGuess)) || this.maskOfSecret.contains(this.specificLetters)) {
             System.out.println("Ранее вы вводили текущую букву!");
             return;
         }
@@ -42,9 +42,8 @@ public class Symbol {
     }
 
     public String checkPrevInputErrorLetter(int flag, String patt, String input) {// здесь делаем!
-        String patternBeforeUsage = patt;
         if (flag >= 1) {//уже добавили букву у шаблону
-            if(patt.contains(input))
+            if (patt.contains(input))
                 return patt;
             StringBuilder str_build = new StringBuilder(patt);
             str_build.insert(15, input);
