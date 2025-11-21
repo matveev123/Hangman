@@ -7,15 +7,13 @@ import com.matveevilya.functions.message.Message;
 import image.Human;
 
 
-
-
 public class Game {
 
     final int TIME_TO_END = 2000;
 
     final int COUNT_OF_GUESS = 7;
 
-    public final String PATTERN_OF_GUESS_CHECK = "^[ёа-яЁА-Я]{1}";
+    public final String PATTERN_OF_GUESS_CHECK = "^[ёа-яЁА-Я]{1}$";
     public final String PATTERN_OF_DECISION_CHECK = "^(Y|y|N|n){1}$";
     public final String PATTERN_OF_REPLACE = "[^\\*]";
 
@@ -135,6 +133,7 @@ public class Game {
 
     // чтение файла + создание маски заново для следующего раунда
     void refresh() {
+        changeablePattern = PATTERN_OF_GUESS_CHECK;
         data.readData();
         symbol.secret = data.takeRandomWord();
         symbol.maskOfSecret = symbol.secret.replaceAll(PATTERN_OF_REPLACE, "*");
