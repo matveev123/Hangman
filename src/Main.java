@@ -5,7 +5,7 @@ class Main {
         // dictionary without caps letters
         Game game = new Game();
         game.startMenu();
-        game.guess();
+        game.guessLetter();
     }
 }
 

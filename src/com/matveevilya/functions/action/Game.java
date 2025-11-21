@@ -27,7 +27,7 @@ public class Game {
     Input input = new Input();
 
     public void startMenu() throws InterruptedException {
-        refresh();
+        refreshStateOfGame();
         System.out.println("Игра началась!");
         int i = 0;
 
@@ -47,10 +47,10 @@ public class Game {
         }
     }
 
-    public void guess() throws InterruptedException {
+    public void guessLetter() throws InterruptedException {
 
         int countOfError = 0;
-        refresh();
+        refreshStateOfGame();
         // основной процесс игры
         changeablePattern = patternToCheckDuplicates;
         while (true) {
@@ -123,7 +123,7 @@ public class Game {
     int chooseUser(int countOfError) throws InterruptedException {
         if (resultOfValid.equals("Y") || resultOfValid.equals("y")) {
             countOfError = 0;
-            refresh();
+            refreshStateOfGame();
         }
         if (resultOfValid.equals("N") || resultOfValid.equals("n")) {
             exitFromTheGame();
@@ -132,7 +132,7 @@ public class Game {
     }
 
     // чтение файла + создание маски заново для следующего раунда
-    void refresh() {
+    void refreshStateOfGame() {
         changeablePattern = PATTERN_OF_GUESS_CHECK;
         data.readData();
         symbol.secret = data.takeRandomWord();
