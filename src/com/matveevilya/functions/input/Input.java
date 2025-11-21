@@ -1,6 +1,6 @@
-package functions.input;
+package com.matveevilya.functions.input;
 
-import functions.message.Message;
+import com.matveevilya.functions.message.Message;
 
 import java.util.Scanner;
 import java.util.regex.Matcher;

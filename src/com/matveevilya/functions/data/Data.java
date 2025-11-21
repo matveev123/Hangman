@@ -1,4 +1,4 @@
-package functions.data;
+package com.matveevilya.functions.data;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -11,14 +11,14 @@ import java.util.Random;
 public class Data {
 
     final String LIST_OF_WORDS = Paths.get("src", "resources", "dictionary.txt").toString();
-    List<String> list_of_words = new ArrayList<>();
+    List<String> dictionaryFromListOfWords = new ArrayList<>();
 
     public void readData() {
         try (BufferedReader fr = new BufferedReader(new FileReader(LIST_OF_WORDS))) {
             {
                 String s;
                 while ((s = fr.readLine()) != null) {
-                    list_of_words.add(s);
+                    dictionaryFromListOfWords.add(s);
                 }
                 fr.close();
             }
@@ -31,7 +31,7 @@ public class Data {
 
     public String takeRandomWord() {
         Random random = new Random();
-        return list_of_words.get((random.nextInt(list_of_words.size())));
+        return dictionaryFromListOfWords.get((random.nextInt(dictionaryFromListOfWords.size())));
     }
 
 

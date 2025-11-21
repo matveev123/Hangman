@@ -1,4 +1,4 @@
-package functions.message;
+package com.matveevilya.functions.message;
 
 public class Message {
     public String message1 = "", message2 = "";

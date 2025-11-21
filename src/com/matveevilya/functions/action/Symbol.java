@@ -1,4 +1,4 @@
-package functions.action;
+package com.matveevilya.functions.action;
 
 import java.util.Arrays;
 
@@ -42,7 +42,7 @@ public class Symbol {
     }
 
     public String checkPrevInputErrorLetter(int flag, String patt, String input) {// здесь делаем!
-        if (flag >= 1) {//уже добавили букву у шаблону
+        if (flag >= 1) {//после добавления буквы к шаблону
             if (patt.contains(input))
                 return patt;
             StringBuilder str_build = new StringBuilder(patt);

@@ -1,10 +1,12 @@
-package functions.action;
+package com.matveevilya.functions.action;
 
 
-import functions.data.Data;
-import functions.input.Input;
-import functions.message.Message;
+import com.matveevilya.functions.data.Data;
+import com.matveevilya.functions.input.Input;
+import com.matveevilya.functions.message.Message;
 import image.Human;
+
+
 
 
 public class Game {
@@ -38,9 +40,10 @@ public class Game {
             message.outputMessages(1);
             resultOfValid = input.inputValidation(inputFromUser, changeablePattern, 1);
 
-            if (resultOfValid.equals("Y") || resultOfValid.equals("y"))
+            if (resultOfValid.equals("Y") || resultOfValid.equals("y")) {
                 i = 1;
-            else if (resultOfValid.equals("N") || resultOfValid.equals("n")) {
+            }
+            if (resultOfValid.equals("N") || resultOfValid.equals("n")) {
                 exitFromTheGame();
             }
         }
@@ -62,6 +65,7 @@ public class Game {
             //ввод пользователя + валидация ввода
             letterToGuess = input.inputValidation(inputFromUser, changeablePattern, 2);
 
+            letterToGuess = letterToGuess.toLowerCase();
             // процесс отгадывания буквы
             if (symbol.secret.contains(letterToGuess)) {
                 symbol.charToGuess = letterToGuess.charAt(0);
@@ -76,7 +80,7 @@ public class Game {
                 // ОШИБКА!!!
                 patternToCheckDuplicates = symbol.checkPrevInputErrorLetter(countOfError, patternToCheckDuplicates, letterToGuess);// отказ засчитывания ошибки на дубликат символа от User!
                 if (test.equals(patternToCheckDuplicates)) {
-                    System.out.println("Ошибка! Данную букву вы вводили ранее, смените свой выбор буквы!");
+                    System.out.println("Ошибка! Данную букву вы вводили ранее, смените свой выбор ввода буквы!");
                     //System.out.println("Введите букву ёщё раз, вы ранее вводили текущий символ");
                     continue;
 
@@ -99,11 +103,7 @@ public class Game {
                 //запрос на выход из игры или следующий раунд?
                 resultOfValid = input.inputValidation(inputFromUser, changeablePattern, 4);
 
-                if (resultOfValid.equals("Y") || resultOfValid.equals("y")) {
-                    countOfError = 0;
-                    refresh();
-                } else
-                    exitFromTheGame();
+                countOfError = chooseUser(countOfError);
             }
 
 
@@ -116,17 +116,24 @@ public class Game {
                 // Запрос на выход следующий раунд
                 resultOfValid = input.inputValidation(inputFromUser, changeablePattern, 3);
 
-                if (resultOfValid.equals("Y") || resultOfValid.equals("y")) {
-                    countOfError = 0;
-                    refresh();//final!
-                } else {
-                    exitFromTheGame();
-                }
+                countOfError = chooseUser(countOfError);
+
             }
         }
     }
 
-    // чтение файла + создание маски
+    int chooseUser(int countOfError) throws InterruptedException {
+        if (resultOfValid.equals("Y") || resultOfValid.equals("y")) {
+            countOfError = 0;
+            refresh();
+        }
+        if (resultOfValid.equals("N") || resultOfValid.equals("n")) {
+            exitFromTheGame();
+        }
+        return countOfError;
+    }
+
+    // чтение файла + создание маски заново для следующего раунда
     void refresh() {
         data.readData();
         symbol.secret = data.takeRandomWord();
